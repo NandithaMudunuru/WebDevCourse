@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Nanditha Mudunuru">
+        <meta name="description" content="Web development exercises">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Developmet Basic Exercise</title>
+        <style>
+            * {
+                margin: 0 0;
+            }
+            a {
+                text-decoration: none;
+                font-size: 20px;
+            }
+            /* unvisited link */
+            a:link {
+              color: black;
+            }
+            
+            /* visited link */
+            a:visited {
+              color: black;
+            }
+            
+            /* mouse over link */
+            a:hover {
+              color: hotpink;
+            }
+            
+            /* selected link */
+            a:active {
+              color: blue;
+            }
+
+            .MenuEntry {
+                cursor: pointer;
+                top: 10px;
+            }
+
+            .mainmenu {
+                display:block;
+                padding:10px;
+                background-color: aliceblue;
+            }
+
+            .contentmenu {
+                display: none;
+                position: absolute;
+                padding:5px;
+            }
+
+            .mainmenu:hover {
+                background-color: aqua;
+            }
+
+            .mainmenu:hover .contentmenu {
+                display:block;
+                background-color: aliceblue;
+                border:3px solid aqua;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="mainmenu">
+            <div class="MenuEntry" style="font-weight: bold;"> <a href="Chapter1_html/index.html">Html</a></div>
+            <ul class="contentmenu">
+                <p><a href="Chapter1_html/HelloWorld.html">Hello World</a></p>
+                <p><a href="Chapter1_html/Text.html">Text</a></p>
+                <p><a href="Chapter1_html/Images.html">Images</a></p>
+                <p><a href="Chapter1_html/Tables.html">Tables</a></p>
+                <p><a href="Chapter1_html/Entities.html">Symbols</a></p>
+                <p><a href="Chapter1_html/Links.html">Links</a></p>
+                <p><a href="Chapter1_html/Forms.html">Forms</a></p>
+                <p><a href="Chapter1_html/Iframe.html">Frames</a></p>
+                <p><a href="Chapter1_html/FullPage.html">Full page</a></p>
+            </ul>
+        </div>
+        <div class="mainmenu">
+            <div class="MenuEntry" style="font-weight: bold;"> <a href="Chapter2_css/index.html">Css</a></div>
+            <ul class="contentmenu">
+                <p><a href="Chapter2_css/InlineStyling.html">Inline styling</a></p>
+                <p><a href="Chapter2_css/Styling.html">Internal styling</a></p>
+                <p><a href="Chapter2_css/ClassStyling.html">Class styling</a></p>
+                <p><a href="Chapter2_css/Borders.html">Borders</a></p>
+                <p><a href="Chapter2_css/Margins.html">Margins</a></p>
+                <p><a href="Chapter2_css/Padding.html">Padding</a></p>
+                <p><a href="Chapter2_css/Floating.html">Position: Float</a></p>
+                <p><a href="Chapter2_css/AbsolutePositioning.html">Position: Absolute</a></p>
+                <p><a href="Chapter2_css/Positioning.html">Positioning</a></p>
+            </ul>
+        </div>
+        <div class="mainmenu">
+            <div class="MenuEntry" style="font-weight: bold;"> <a href="Chapter3_javascript/index.html">Javascript</a></div>
+            <ul class="contentmenu">
+                <p><a href="Chapter3_javascript/Inline.html">Inline script</a></p>
+                <p><a href="Chapter3_javascript/Internal.html">Internal script</a></p>
+                <p><a href="Chapter3_javascript/Elements.html">Accessing elements</a></p>
+                <p><a href="Chapter3_javascript/Variables.html">Variables</a></p>
+                <p><a href="Chapter3_javascript/Arrays.html">Arrays</a></p>
+                <p><a href="Chapter3_javascript/DisappearingCircles.html">Disappearing circles</a></p>
+                <p><a href="Chapter3_javascript/Captcha.html">Captcha</a></p>
+                <p><a href="Chapter3_javascript/ReactionTime.html">Reaction time</a></p>
+            </ul>
+        </div>
+    </body>
+</html>
