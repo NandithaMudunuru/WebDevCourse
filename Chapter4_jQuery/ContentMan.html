@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Content Manipulation</title>
+        <script src="jquery.min.js"></script>
+        <style type="text/css">
+            .circle {
+                width: 100px;
+                height: 100px;
+                border-radius:50%;
+                float:left;
+                margin:50px;
+            }
+            
+            .square {
+                width: 100px;
+                height: 100px;
+                border-radius:0%;
+                float:left;
+                margin:50px;
+            }
+
+            p {
+                text-align: center;
+                position:relative;
+                top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="Text">Some Text</p>
+        <div class="circle" style="background-color: greenyellow;" id="GrenCirc">
+            <p>Click to make squares</p> 
+        </div>
+        <div class="square" style="background-color: greenyellow;" id="GrenSqur">
+            <p>Click to make circles</p> 
+        </div>
+        <div class="square" style="background-color: greenyellow;" id="FadeBox">
+            <p>Click to fade</p> 
+        </div>
+        <div class="square" style="background-color: greenyellow;" id="FadeBox2">
+            <p>Click to fade and edit text</p> 
+        </div>    
+            <div><div class="square" style="background-color: greenyellow;" id="ToggleResult"> 
+                <p>Toggle Response</p>
+            </div>
+        <button id="ToggleKey">Toggle</button>
+
+        </div>    
+        
+        <script type="text/javascript">
+            alert('Current content: '+$('p').html());
+            $('#Text').html('New text');
+            alert('Current content: '+$('p').html());
+            $('#GrenCirc').hover(function(){
+                $('#GrenCirc').css("background-color","green");
+            });
+            $('.circle').click(function() {
+                $('.circle').attr("class","square");
+            });
+            $('.square').click(function() {
+                $('.square').attr("class","circle");
+            });
+            $('#FadeBox').click(function() {
+                $('#FadeBox').fadeOut();
+            });
+            $('#FadeBox2').click(function() {
+                $('#FadeBox2').fadeOut("slow", function(){
+                    $('#Text').html('Text post fade out');
+                });
+            });
+            $('#ToggleKey').click(function() {
+                if ($("#ToggleResult").css('display') == 'none') {
+                    $("#ToggleResult").fadeIn();
+                } else {
+                    $("#ToggleResult").fadeOut();
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Ajax</title>
+        <script src="jquery.min.js"></script>
+    </head>
+    <body> 
+        <p id="Text"></p>
+        <script type="text/javascript">
+            $.ajax("Test.md").done(function(data){
+                $('#Text').html(data);
+            }).fail(function(data){
+                alert('Data aquisition failed');
+            })
+        </script>
+    </body>
+</html>
