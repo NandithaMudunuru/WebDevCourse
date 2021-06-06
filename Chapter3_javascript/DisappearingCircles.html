@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Disappearing circles</title>
+        <style type="text/css">
+            .circle {
+                width: 100px;
+                height: 100px;
+                border-radius:50%;
+                float:left;
+                margin:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="circle" style="background-color: blue;" id="BlueCirc"></div>
+        <div class="circle" style="background-color: aquamarine;" id="AquaCirc"></div>
+        <div class="circle" style="background-color: greenyellow;" id="GrenCirc"></div>
+        <script type="text/javascript">
+            document.getElementById("BlueCirc").onclick = function() {
+                document.getElementById("BlueCirc").style.display = "none";
+            } 
+            document.getElementById("AquaCirc").onclick = function() {
+                document.getElementById("AquaCirc").style.display = "none";
+            } 
+            document.getElementById("GrenCirc").onclick = function() {
+                document.getElementById("GrenCirc").style.display = "none";
+            } 
+        </script>
+    </body>
+</html>

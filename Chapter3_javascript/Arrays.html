@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Javascript: Arrays</title>
+    </head>
+    <body>
+        <div id="TextBox"></div>
+        <script type="text/javascript">
+            var myArray = new Array();
+            myArray[0] = "Pizza";
+            myArray[1] = "Chocolate";
+            var myArr_1 = [];
+            myArr_1.push("Entry-1");
+            myArr_1.push("Wrong Entry");
+            myArr_1.push("Entry-2");
+            i = 1;
+            j = 1;
+            //delete j items starting from item i and replace the space with two entries
+            myArr_1.splice(i, j, "Replace-1","Replace-2"); 
+            console.log(myArray.length);
+            alert(myArr_1.length);
+            var i = 0;
+            while (i < myArr_1.length) {
+                document.getElementById('TextBox').insertAdjacentHTML("beforeend","<p>"+myArr_1[i]+"</p>")
+                i++;
+            }
+        </script>
+    </body>
+</html>

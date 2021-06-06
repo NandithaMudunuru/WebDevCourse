@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta name="description" content="If condition, for loop and random string generator">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+            input{
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="background-color: whitesmoke; width: 200px; height: 300px; 
+        margin: 1in auto; padding: 10px; box-shadow: 10px 10px grey; 
+        border:1px solid lightgray" id="Box-1">
+            <div style="font-family:Arial; font-weight:900; padding: 5px; 
+            margin:10px auto; color:black; text-align:center;" id="Box-2">                
+                CAPTCHA
+            </div>
+            <div style="font-family:Cardo; font-weight:900; padding: 5px; 
+            margin:10px 50px; color:grey; text-align:center;
+            border:1px solid black;"
+            onmousedown='return false;' onselectstart='return false;'id="Box-3">
+            </div>   
+            <div style="font-family:Cardo; font-weight:900; padding: 5px; 
+            margin:10px auto; color:grey; text-align:center;" id="Box-4">
+                <input id="Inp-1" type="Text" placeholder="Enter CAPTCHA Code">
+            </div> 
+            <div style="background-color: white ;font-family:Arial; font-weight:600;  
+            padding: 20px; margin:20px auto; color:grey; text-align:left;
+            box-shadow: 1px 1px grey; border:1px solid rgb(200, 222, 248)" id="Box-5">
+                <p><input type="checkbox" id="Inp-2" value="off"> I am not a robot</p>
+            </div> 
+            <div  style="position:absolute; margin:5px 0; transform: translateX(130%)" id="box-6">
+                <button id="Submit">Submit</button>
+            </div>
+        </div>
+        <div id="Result" style="position:relative; font-size:40px ; font-weight: 1200; font-family:Cardo; margin: 1in;"></div>
+        <script type="text/javascript">
+            function makeCaptcha() {
+                var Captcha = [];
+                var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,/?><~!@#$%^&*()`_-+=|[]";
+                for (var i = 0; i < 7; i++) {
+                    Captcha.push(charset.charAt(Math.floor(charset.length*Math.random())));
+                }
+                return Captcha.join('');
+            }
+            var Captcha = makeCaptcha();
+            document.getElementById("Box-3").innerHTML = Captcha;
+            document.getElementById("Submit").onclick = function() {
+                var inp_1 = document.getElementById("Inp-1").value;
+                var inp_2 = document.getElementById("Inp-2");
+                if (inp_1 == Captcha && inp_2.checked) {
+                    document.getElementById("Box-1").style.display = "none";
+                    document.getElementById("Result").innerHTML = "Congratulations! You are not a Robot ;)"
+                } else if (inp_2.checked == false) {
+                    alert("Box left unchecked")
+                } else {
+                    alert("Oops! The string was '"+Captcha+"'. Give it another go! :)")
+                    window.location.reload();
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Variables</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+        </style>
+    </head>
+    <body>
+        <input type="Text" id="Input">
+        <button id="Change">Change Text</button>
+        <div id="Result"></div>
+        <p id="Initial"></p>
+        <button id="double">Double</button>
+        <p id="Final"></p>
+        <script>
+            var x = 5;
+            document.getElementById("double").onclick = function() {
+                document.getElementById("Initial").insertAdjacentHTML("beforeend",x+", ")
+                x=2*x;
+                document.getElementById("Final").insertAdjacentHTML("beforeend",x+", ")
+            }
+            document.getElementById("Change").onclick = function() {
+                input = document.getElementById("Input").value;
+                output = "<h1>"+input+"</h1>"
+                document.getElementById("Result").insertAdjacentHTML("beforeend",output)
+                document.getElementById("Result").style.fontFamily = "Cardo"
+                document.getElementById("Result").style.textTransform = "Capitalize"
+                document.getElementById("Result").style.fontWeight = "Bold"
+            }
+        </script>
+    </body>
+</html>

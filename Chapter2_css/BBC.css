@@ -1,0 +1,103 @@
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family:Arial, Helvetica, sans-serif;
+            }
+            h1 {
+                font-size: 30px;
+                font-style:normal
+                padding:10px;
+            }
+            h2 {
+                font-size: 25px;
+                font-style: bold;
+            }
+            h3 {
+                font-size: 20px;
+                color:gray
+            }
+            h4 {
+                font-size: 14px;
+                font-style: bold;
+            }
+            p {
+                font-size: 14;
+            }
+            img {
+                height: 70%;
+                position: relative;
+            }
+            .clear-float {clear:both}
+            #Head1 {
+                position: relative;
+                height:30px;
+                width:650px;
+                margin:0 auto;
+                background-color:white;
+                color:black;
+                font-style: bold;
+                display: block;
+            }
+            #Head2 {
+                position: relative;
+                height:40px;
+                width:device-width;
+                background-color:#b30000;
+                color:white;
+                padding: 10px;
+                display: block;
+            }
+            ul {
+                display:grid;
+                grid-template-columns: repeat(var(--columns),1fr);
+                margin: 0px;
+                height: 100%;
+                width:100%;
+            }
+            li {
+                grid-column-end: span 2;
+                position: relative;
+                width: 100%;
+                padding: 5px;
+                text-align: center;
+                vertical-align: text-bottom;
+            }
+            .grid-container {
+                position: relative;
+                bottom: 0px;
+                display:grid;
+                grid-template-columns: auto auto auto auto auto auto auto;
+            }
+            .grid-item1 {
+                padding: 5px;
+                height:30px;
+                border-right: 1px solid gray; 
+                border-bottom: 1px solid gray;
+                text-align: center;
+                vertical-align: text-bottom;
+                &:hover
+                    border-bottom: 3px solid aqua;
+            }
+            .grid-item2 {
+                padding:0px 10px;
+                height: 18px;
+                border-right:1px solid gray; 
+                text-align: center;
+                vertical-align: bottom;
+            }
+            .body-container {
+                display: grid;
+                position: relative;
+                grid-template-columns: 66% 34% ;
+            }
+            .body-main {  
+                padding: 10px;
+                text-align: left;
+            }
+            .body-side {
+                padding: 10px;
+                text-align: right;
+            }

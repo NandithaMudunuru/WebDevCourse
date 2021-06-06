@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <title>Html page with style</title>
+        <style type="text/css">
+            p { color:#9B59B6; font-size: 95%;}
+            h1 { color:pink; }
+            .TxtForm { color:#E8DAEF}
+            .HeadLevels { color:#D7BDE2}
+            .Italics {font-style: italic;}
+            .plum {color:palevioletred}
+            #peru { color:#8E44AD}
+            #lists { color:#D4E6F1; background-color: #512E5F; width:400px;
+                z-index:1; opacity:0.5; margin:100px}
+            #Txt { width:400px; z-index:2; margin-left: 900px;}
+            .clear-float {clear:both}
+            #FixHeading { position:fixed; background-color: black; opacity: 0.9;margin:50px 20px}
+        </style>
+    </head>
+    <body>
+        <div id="FixHeading">
+        <h1 id="Top">Css styling: Margins</h1>
+        <p> Multiple objects can be added to one class but ID can only be used with one object per page</p>
+        </div>
+        <div id="Txt">
+        <h2> Text formating using html </h2>
+        <h1 class="HeadLevels">Heading 1</h1>
+        <h2 class="HeadLevels Italics">Heading 2</h2>
+        <h3 class="HeadLevels">Heading 3</h3>
+        <h4 class="HeadLevels Italics">Heading 4</h4>
+        <h5 class="HeadLevels">Heading 5</h5>
+        <h6 class="HeadLevels Italics">Heading 6</h6>
+        <p class="TxtForm"> Paragraph 1 <strong>bold 1</strong> <b>bold 2</b> </p>
+        <p class="TxtForm"> Paragraph 2 <em>italic 1</em> <i>italic 2</i></p>
+        <p class="TxtForm"> Paragraph 3 <ins>underlined 1</ins> <span class="plum"><u>underlined 2</u> with <br> a line break </p></span>
+        <p class="TxtForm"> Paragraph 4 <del>Deleted </del> </p>
+        <p class="TxtForm"> Paragraph 4 <sup>Superscript </sup> </p>
+        <p class="TxtForm"> Paragraph 4 <sub>Subscript </sub> </p>
+        </div>
+        <hr>
+        <div id="lists">
+        <h2> Lists in html </h2>
+        <ul id="peru"> 
+            <li>Item </li> 
+            <li>List </li> 
+        </ul>
+        <ol> 
+            <li>Number </li> 
+            <li>List </li> 
+        </ol>
+        <ol start=10> 
+            <li>Controlled order </li> 
+            <li>List </li> 
+        </ol>
+        <ol reversed> 
+            <li>Controlled order </li> 
+            <li>List </li> 
+        </ol>
+        <ol type="I"> 
+            <li>Upper case </li> 
+            <li>Roman </li> 
+        </ol>
+        <ol type="i"> 
+            <li>Lower case</li> 
+            <li>Roman </li> 
+        </ol>
+        <ol type="I"> 
+            <li>Upper case </li> 
+            <li>Alphabetical </li> 
+        </ol>
+        <ol type="i"> 
+            <li>Lower case</li> 
+            <li>Alphabetical </li> 
+        </ol>
+        <ul> 
+            <li>Nested </li> 
+            <ul> 
+                <li>Item </li> 
+                <li>List </li> 
+            </ul>
+            <li>List </li> 
+        </ul>
+        <ol> 
+            <li>Nested </li> 
+            <ol> 
+                <li>Numbered </li> 
+                <li>List </li> 
+            </ol>
+            <li>List </li> 
+        </ol>
+        </div>
+        <div class="clear-float"></div>
+        <hr>
+        
+        <h2> Images in html </h2>
+        <p><img src="taxi-teamsport.png" width="500"></p>
+
+        <p><img src="taxi-teamsport.png" width="500" height="600"></p>
+
+        <p>Illustration by <a href="https://icons8.com/illustrations/author/5dca95ef01d036001426e2bc">Ivan Haidutski</a> from <a href="https://icons8.com/illustrations">icons8.com</a></p>
+
+        <hr>
+
+        <h2> Tables in html </h2>
+        <table>
+            <thead>
+                <tr>
+                    <th> C1</th>
+                    <th> C2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> R1C1</td>
+                    <td> R1C2</td>
+                </tr>
+                <tr>
+                    <td> R2C1</td>
+                    <td> R2C2</td>
+                </tr>
+        </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Links in html </h2>
+        <p id="Top"><a href="https://www.google.com/">Google</a></p>
+        <p><a href="https://icons8.com/illustrations/author/5dca95ef01d036001426e2bc"><img src="taxi-teamsport.png" width="100" heigth="50"></a></p>
+
+        <hr>
+
+        <h2>Forms with no functions </h2>
+        <form>
+            <p>Enter something here: <input type="text" placeholder="Enter Text"></p>
+            <p>Check here (unchecked by default): <input type="checkbox"></p>
+            <p>Check here (checked by default): <input type="checkbox" checked></p>
+            <p>Under 18: <input type="radio" name="age"> Over 18: <input type="radio" name="age"></p>
+            <p>Color:
+                <select>
+                    <option>Red</option>
+                    <option selected>Blue</option>
+                    <option>Green</option>
+                    <option>Yellow</option>
+                    <option>Grey</option>
+                    <option>Brown</option>
+                </select>
+            </p>
+            <p><input type="submit" value="Pass"></p>
+        </form>
+
+        <hr>
+
+        <h2>iframes in html </h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/IfFgkyd3WnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <hr>
+
+        <footer><a href="#Top"><input type="button" value="Back to the top"></a><p> &copy; NMudunuru </p></footer>
+    </body>
+</html>

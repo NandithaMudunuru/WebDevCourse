@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Javascript: Access Elements</title>
+    </head>
+    <body>
+        <p id="text">Hello World!</p>
+        <button id="mybutton">Click Me</button>
+        <p id="text-1"> Javascript is ...</p>
+        <button id="mybutton-1">Click Me</button>
+        <div id="Div-1"></div>
+        <button id="mybutton-2">Click Me</button>
+        <p id="text-2">More text</p>
+        <button id="mybutton-3">Change Style</button>
+        <script type="text/javascript">
+            document.getElementById("mybutton").onclick = function() {
+                alert("Button clicked");
+                document.getElementById("text").innerHTML = "Welcome!";}
+            document.getElementById("mybutton-1").onclick = function() {
+                document.getElementById("text-1").innerHTML = "I think " + document.getElementById("text-1").innerHTML + " Interesting!";}
+            document.getElementById("mybutton-2").onclick = function() {
+                document.getElementById("Div-1").insertAdjacentHTML("afterend","<p>Magic!!</p>"); 
+            }
+            document.getElementById("mybutton-3").onclick = function() {
+                document.getElementById("text-2").style.color = "blue";
+                document.getElementById("text-2").style.fontsize = "50px";
+            }
+        </script>
+    </body>
+</html>
