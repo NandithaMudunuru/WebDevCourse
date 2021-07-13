@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery-ui APIs</title>
+        <link href="jQuery_ui/jquery-ui.css" rel="stylesheet">
+        <style type="text/css">
+            .Host {
+                width:500px;
+                height:500px;
+                border:1px solid gray;
+                margin:20px;
+            }
+            .Widget { 
+                position: absolute;
+                width: 100px; 
+                height: 100px; 
+                text-align:center;
+                background-color:cadetblue;
+            }
+            #dropLock {
+                position: relative;
+                top: 10px;
+                left: 300px;
+                width: 150px; 
+                height: 150px; 
+                text-align:center;
+                background-color:lightgray;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="accordian" class="Host">
+            <h1>Part 1</h1>
+            <div><p>Random Text</p></div>
+            <h1>Part 2</h1>
+            <div><h2>Random Heading</h2></div>
+            <h1>Part 3</h1>
+            <div><img src="taxi-teamsport.png" width="100" height="100"></div>
+        </div>
+        <div class="Host">
+            <div id="draggable" class="Widget ui-widget-content">
+                <spam class="ui-widget-header">Drag me!</spam>
+            </div>
+        </div>
+        <div class="Host" class="ui-widget-content">
+            <div id="resizable" class="Widget ui-state-active">
+                <spam class="ui-widget-header">Resize me!</spam>
+            </div>
+        </div>
+        <div class="Host">
+            <div id="dropLock" class="ui-widget-header">
+                <spam>Drop here!</spam>
+            </div>
+            <div id="dropKey" class="Widget ui-widget-content">
+                <spam>Drag me!</spam>
+            </div>
+        </div>
+        <script src="jQuery_ui/external/jquery/jquery.js"></script>
+        <script src="jQuery_ui/jquery-ui.js"></script>
+        <script>
+            $( "#draggable" ).draggable({
+                containment: "parent", 
+                cursor: "crosshair", 
+            });
+            $( "#resizable" ).resizable({
+                ghost: true,
+            });
+            $( "#dropKey" ).draggable();
+            $( "#dropLock" ).droppable({
+                drop: function( event, ui ) {
+                    $( this )
+                        .addClass( "ui-state-highlight")
+                        .find( "spam" )
+                        .html( "Dropped!" );
+                }
+            });
+            $(  "#accordian"  ).accordion();
+        </script>
+    </body>
+</html>

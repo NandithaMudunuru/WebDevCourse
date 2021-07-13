@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>Code player</title>
+        <link href="jQuery_ui/jquery-ui.css" rel="stylesheet">
+        <style type="text/css">
+
+            * {
+                margin: 0;
+            }
+
+            #Header  {
+                position:fixed; 
+                width: 100%;
+                height: 30px;
+                background-color:rgb(224, 230, 238);
+                padding: 10px;
+            }
+
+            #Header a {
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 30px;
+                color:black;
+            }
+
+            #Header a:hover {
+                color: white;
+            }
+
+            #Header a:visited {
+                color:black;
+            }
+
+            #TabBox {
+                height:30px;
+                left:50%;
+                transform: translate(-50%,0%);
+            }
+
+            input {
+                height:100%;
+                border-radius:5px;
+            }
+
+            #Main {
+                position: fixed;
+                width:100%;
+                top:50px;
+                height:93%;
+                display:grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .HeaderItem {
+                display:inline-block;
+                position: absolute;
+
+            }
+
+            .Tab {
+                display: initial;
+                padding:1px;
+            }
+
+            textarea {
+                width:100%;
+                height:100%;
+                margin:0;
+                padding:0;
+                resize:none;
+                text-align:left;
+                vertical-align:top;
+                color:cornflowerblue;
+            }
+
+            .Tab div {
+                width:100%;
+                height:100%;
+                padding:0.5px;
+                border:0.5px solid black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="Page">
+        <div id="Header">
+            <div class="HeaderItem">
+                <a href="">Code Player</a>
+            </div>
+            <div id="TabBox" class="HeaderItem">
+                <input type="button" id="Key-1" value="Html"/>
+                <input type="button" id="Key-2" value="Css"/>
+                <input type="button" id="Key-3" value="Js"/>
+                <input type="button" id="Key-4" value="Output"/>
+            </div>
+        </div>
+
+        <div id="Main">
+            <div id="Tab-1" class="Tab">
+                <textarea id="html" placeholder="Enter html code here"></textarea>
+            </div>
+            <div id="Tab-2" class="Tab">
+                <textarea id="css" placeholder="Enter css code here"></textarea>
+            </div>
+            <div id="Tab-3" class="Tab">
+                <textarea id="js" placeholder="Enter javascript here"></textarea>
+            </div>
+            <div id="Tab-4" class="Tab">
+                <div id="OutHtml"></div>
+            </div>
+        </div>
+        </div>
+
+        <style type="text/css" id="OutCss"></style>
+        <script type="text/javascript" id="OutJs"></script>
+        <script src="jQuery_ui/external/jquery/jquery.js"></script>
+        <script src="jQuery_ui/jquery-ui.js"></script>
+        <script type="text/javascript">  
+
+            $(  "#Key-1"  ).click(function(){DivTogg( "#Tab-1" )}); 
+            $(  "#Key-2"  ).click(function(){DivTogg( "#Tab-2" )}); 
+            $(  "#Key-3"  ).click(function(){DivTogg( "#Tab-3" )}); 
+            $(  "#Key-4"  ).click(function(){DivTogg( "#Tab-4" )}); 
+
+            function DivTogg( InpVar ) {
+                var state;
+                if ($(  InpVar  ).css("display") == "none") {
+                    state = "initial";
+               } else {
+                    state = "none";
+               };
+                $(  InpVar  ).css("display",state);
+            };
+
+            var HtmlInput = false;
+            var CssInput = false;
+            var JsInput = false;
+            var HtmlData="";
+            var CssData="";
+            var JsData="";
+
+            $(document).on("input", "#html", function(){
+                if ($(this).val() !== "") {
+                    HtmlInput = true;
+                }
+                if (HtmlInput) {
+                    HtmlData = $.trim($("#html").val());
+                    console.log(HtmlData);
+                    $( "#OutHtml" ).html(HtmlData);
+                } 
+            }); 
+
+            $(document).on("input", "#css", function(){
+                if ($(this).val() !== "") {
+                    CssInput = true;
+                }
+                if (CssInput) {
+                    CssData = $.trim($("#css").val());
+                    console.log(CssData);
+                    $( "#OutCss" ).text(CssData);
+                } 
+            });
+
+            $(document).on("input", "#js", function(){
+                if ($(this).val() !== "") {
+                    JsInput = true;
+                }
+                if (JsInput) {
+                    JsData = $.trim($("#js").val());
+                    console.log(JsData);
+                    $( "#OutJs" ).html(JsData);
+                } 
+            }); 
+
+        </script>
+    </body>
+</html>

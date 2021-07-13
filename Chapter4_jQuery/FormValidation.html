@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Validation</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
+        <style type="text/css">
+
+            body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 18px;
+            }
+            input {
+                padding: 5px;
+                width: 170px;
+            }
+            input:invalid {
+                border: 2px dashed red;
+            }
+            label {
+                padding: 5px;
+                position: relative;
+                top: 4px;
+                display: inline-block;
+                width: 170px;
+            }
+            .formElem {
+                margin:5px;
+                width: 380px;
+            }
+            #form {
+                background-color: azure;
+                margin:auto;
+                padding: 10px;
+                width: 390px;
+                border-radius:5px;
+                border:1px  solid black;
+            }
+            #submitkey {
+                margin:20px auto 0px auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 18px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="form">
+            <div class="formElem">
+                <label for="Fname">First Name</label>
+                <input type="text" id="Fname" name="Fname" placeholder="eg. John"/>
+            </div>
+            <div class="formElem">
+                <label for="Lname">Last Name</label>
+                <input type="text" id="Lname" name="Lname" placeholder="eg. Doe"/>
+            </div>
+            <div class="formElem">
+                <label for="DOB">Date Of Birth</label>
+                <input type="date" id="DOB" name="DOB" data-inputmask="'alias': 'date'" />
+            </div>
+            <div class="formElem">
+                <label for="email">Email</label>
+                <input type="text" id="Email" name="Email" placeholder="eg. johndoe@example.com"/>
+            </div>
+            <div class="formElem">
+                <label for="phone">Mobile</label>
+                <input type="text" id="phone" name="phone"/>
+            </div>
+            <div class="formElem">
+                <label for="pass">Password</label>
+                <input type="password" id="pass" name="pass" placeholder="password" maxlength="16" minlength="8" required/>
+            </div>
+            <div class="formElem">
+                <label for="passRep">Confirm Password</label>
+                <input type="password" id="passRep" name="passRep" placeholder="password" maxlength="16" minlength="8" required/>
+            </div>
+            <div class="formElem">
+                <p style="font-size: 80%;"><input style="width:50px" type="checkbox" id="CheckBox" value="off"> I have read the terms and conditions</p>
+            </div>
+            <div class="formElem">
+                <button type="button" id="submitkey">Sign Up</button>
+            </div>
+        </div>
+        <h1 id="Success" style="text-align: center;"></h1>
+        <script type="text/javascript">
+            $(":input").inputmask();
+            $("#phone").inputmask("(+99)-9999999999");
+            var ErrorMsg = [];
+            var Missing = [];
+            var Test = 0;
+            var today = new Date();
+            $('#submitkey').click(function(){
+                var CBox = document.getElementById("CheckBox");
+                if ($('#Fname').val()=='') {Missing.push('First Name');}
+                if ($('#Lname').val()=='') {Missing.push('Last Name');}
+                if ($('#DOB').val()=='') {Missing.push('DOB');}
+                if ($('#pass').val()=='') {Missing.push('Password');
+                } else {
+                    var age = Math.floor((today-$('#DOB').val()) / (365.25 * 24 * 60 * 60 * 1000));
+                    if (age<18) {ErrorMsg.push('Sorry you are underage');}
+                }
+                if ($('#passRep').val()=='') {Missing.push('Password Confirmation');}
+                if (isEmail($('#Email').val())==false) {ErrorMsg.push($('#Email').val()+'is an invalid Email');}
+                if ($('#pass').val()!==$('#passRep').val()) {ErrorMsg.push('Passwords do not match');}
+                if (CBox.checked==false) {ErrorMsg.push('Please read terms and conditions');}
+                ErrorMsg=ErrorMsg.join(', ');
+                Missing=Missing.join(', ');
+                if (ErrorMsg!=="") {
+                    alert(ErrorMsg);
+                    ErrorMsg=[];
+                } else {
+                    Test++;
+                }
+                if (Missing!=="") {
+                    alert('Missing fields: '+Missing);
+                    Missing=[];
+                }else {
+                    Test++;
+                }
+                if (Test==2) {
+                    $("#Success").html('Sign up successfull!');
+                }
+
+            });
+            function isEmail(email) {
+                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                return regex.test(email);
+            };
+        </script>
+    </body>
+</html>
